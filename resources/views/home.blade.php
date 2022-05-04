@@ -45,7 +45,6 @@
 
 <body class="mx-auto d-flex flex-column justify-content-center align-items-center "
     style="width:95%;font-family:'Nunito', sans-serif">
-
     <div class="align-self-start w-100" style="margin: 25px 0">
 
         @if (session('product_msg'))
@@ -110,10 +109,9 @@
                                     <input class="btn btn-danger btn-lg" type="submit" value="Delete">
                                 </form>
                             </div>
-
                         </td>
                         <td scope="row"><img height="150" width="150"
-                                src="storage/{{ $product['file_path'] ?? 'images/not_found.png' }}" alt=""></td>
+                                src="storage/{{ empty($product['filename']) ? 'images/image_not_found.png' : "images/$product[filename]"  }}" alt=""></td>
                         <td scope="row">{{ $product['id'] }}</td>
                         <td scope="row" class="fw-bold">{{ $product['name'] }}</td>
                         <td scope="row" class="fw-bold">{{ '$' . $product['price'] }}</td>

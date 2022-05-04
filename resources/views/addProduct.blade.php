@@ -31,7 +31,7 @@
 
             <div class="d-flex flex-column gap-2">
                 <label for="image">Image of the product</label>
-                <input type="hidden" name="file_path" id="file_path">
+                <input type="hidden" name="filename" id="filename">
                 <input type="file" name="picture" id="image-input" class="p-2"
                     style="border-radius: 7.5px;border:1px solid black" id="image">
             </div>
@@ -87,7 +87,7 @@
     </div>
     <script>
         document.querySelector('#image-input').addEventListener('input', function(e) {
-            document.querySelector('#file_path').value = e.target.value;
+            document.querySelector('#filename').value = e.target.value;
         })
     </script>
 </body>

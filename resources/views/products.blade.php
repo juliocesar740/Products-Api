@@ -126,7 +126,7 @@
 
                         </td>
                         <td scope="row"><img height="150" width="150"
-                                src="storage/{{ $product['file_path'] ?? 'images/not_found.png' }}" alt=""></td>
+                                src="storage/{{ empty($product['filename']) ? 'images/image_not_found.png' : "images/$product[filename]" }}" alt=""></td>
                         <td scope="row">{{ $product['id'] }}</td>
                         <td scope="row" class="fw-bold">{{ $product['name'] }}</td>
                         <td scope="row" class="fw-bold">{{ '$' . $product['price'] }}</td>

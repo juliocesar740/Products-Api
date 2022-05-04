@@ -72,8 +72,8 @@ class ProductController extends Controller
         // handle file input
         if ($request->hasFile('picture')) {
 
-            $filename = explode('\\', $request['file_path'])[2];
-            $product_data['file_path'] = "images/$filename";
+            $filename = explode('\\', $request['filename'])[2];
+            $product_data['filename'] = $filename;
 
             Storage::putFileAs('/public/images', $product_data['picture'], $filename);
             unset($product_data['picture']);
@@ -127,8 +127,8 @@ class ProductController extends Controller
         // handle file input
         if ($request->hasFile('picture')) {
 
-            $filename = explode('\\', $request['file_path'])[2];
-            $product_data['file_path'] = "images/$filename";
+            $filename = explode('\\', $request['filename'])[2];
+            $product_data['filename'] = $filename;
 
             Storage::putFileAs('/public/images', $product_data['picture'], $filename);
             unset($product_data['picture']);
@@ -158,8 +158,8 @@ class ProductController extends Controller
         }
 
         // delete image
-        if ($product['file_path']) {
-            Storage::delete('public/' . $product['file_path']);
+        if ($product['filename']) {
+            Storage::delete('public/images/' . $product['filename']);
         }
 
         // delete product
